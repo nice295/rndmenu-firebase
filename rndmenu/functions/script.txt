@@ -1,0 +1,7 @@
+curl -XGET 'http://localhost:5001/rndmenu/us-central1/app/keyboard'
+
+curl -XPOST 'localhost:5001/rndmenu/us-central1/app/message' -d '{
+  "user_key": "encryptedUserKey",
+  "type": "text",
+  "content": "1식당-점심"
+}'

@@ -1,0 +1,35 @@
+{
+  "name": "big-ben-functions",
+  "description": "A simple endpoint that returns a number of 'BONG' based on the time of day",
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "array": "latest",
+    "iconv": "latest",
+    "apiai": "latest",
+    "firebase": "latest",
+    "memory-cache": "latest",
+    "universal-analytics": "^0.4.13",
+    "moment-timezone": "latest",
+    "cheerio": "^0.22.0",
+    "request": "^2.79.0",
+    "express": "^4.16.3",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "private": true
+}
