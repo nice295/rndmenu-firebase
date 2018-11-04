@@ -38,6 +38,17 @@ utils.getTime = () => {
     return g;
 };
 
+utils.getDay = () => {
+    var m = moment();
+    m.tz("Asia/Seoul").format();
+
+    var currentDay = m.format("dddd");
+    console.log("currentDay is " + currentDay);
+
+    return currentDay;
+};
+
+
 utils.getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
 }

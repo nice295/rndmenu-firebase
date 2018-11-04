@@ -42,7 +42,7 @@ function getApiai(quetion, callback) {
                             callback(message.baseTypeText(cache.get('1-lunch')));
                         } else {
                             console.log("No 1-lunch");
-                            getMenu(12, function (data) {
+                            todayMenu(12, function (data) {
                                 callback(message.baseTypeText(data));
                                 cache.put('1-lunch', data, 1 * 60 * 60 * 1000);
                             });
@@ -57,7 +57,7 @@ function getApiai(quetion, callback) {
                             callback(message.baseTypeText(cache.get('2-breakfast')));
                         } else {
                             console.log("No 2-breakfast");
-                            getMenu(21, function (data) {
+                            todayMenu('2식당-아침', function (data) {
                                 callback(message.baseTypeText(data));
                                 cache.put('2-breakfast', data, 1 * 60 * 60 * 1000);
                             });
@@ -68,7 +68,7 @@ function getApiai(quetion, callback) {
                             callback(message.baseTypeText(cache.get('2-lunch')));
                         } else {
                             console.log("No 2-lunch");
-                            getMenu(22, function (data) {
+                            todayMenu('2식당-점심', function (data) {
                                 callback(message.baseTypeText(data));
                                 cache.put('2-lunch', data, 1 * 60 * 60 * 1000);
                             });
@@ -79,7 +79,7 @@ function getApiai(quetion, callback) {
                             callback(message.baseTypeText(cache.get('2-dinner')));
                         } else {
                             console.log("No 2-dinner");
-                            getMenu(23, function (data) {
+                            todayMenu('2식당-저녁', function (data) {
                                 callback(message.baseTypeText(data));
                                 cache.put('2-dinner', data, 1 * 60 * 60 * 1000);
                             });

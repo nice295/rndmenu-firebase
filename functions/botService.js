@@ -14,9 +14,11 @@ const apiai = require('./apiai');
 const utils = require('./utils');
 
 var visitor = ua('UA-51117181-7');
+var STR_NO_FOOD = "오늘은 식당 운영을 하지 않습니다.";
 
 botService.choseMenu = (req, content, callback) => {
     visitor.event("message", content, req.body.user_key, 0).send();
+    console.log(`User(${req.body.user_key}) is asking ${content}.`);
 
     switch (content) {
         case "🎁뭐먹지":
@@ -56,50 +58,66 @@ botService.choseMenu = (req, content, callback) => {
             break;
 
         case "1식당-점심":
-            if (cache.get(content)) {
-                console.log("Data from cache " + content)
-                callback(null, message.baseType(cache.get(content)));
+        if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
+                callback(null, message.baseType(STR_NO_FOOD));
             } else {
-                todayMenu(content, function (data) {
-                    callback(null, message.baseType(data));
-                    cache.put(content, data, 1 * 60 * 60 * 1000);
-                });
+                if (cache.get(content)) {
+                    console.log("Data from cache " + content)
+                    callback(null, message.baseType(cache.get(content)));
+                } else {
+                    todayMenu(content, function (data) {
+                        callback(null, message.baseType(data));
+                        cache.put(content, data, 6 * 60 * 60 * 1000);
+                    });
+                }
             }
             break;
 
         case "2식당-아침":
-            if (cache.get(content)) {
-                console.log("Data from cache " + content)
-                callback(null, message.baseType(cache.get(content)));
+            if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
+                callback(null, message.baseType(STR_NO_FOOD));
             } else {
-                todayMenu(content, function (data) {
-                    callback(null, message.baseType(data));
-                    cache.put(content, data, 1 * 60 * 60 * 1000);
-                });
+                if (cache.get(content)) {
+                    console.log("Data from cache " + content)
+                    callback(null, message.baseType(cache.get(content)));
+                } else {
+                    todayMenu(content, function (data) {
+                        callback(null, message.baseType(data));
+                        cache.put(content, data, 6 * 60 * 60 * 1000);
+                    });
+                }
             }
             break;
 
         case "2식당-점심":
-            if (cache.get(content)) {
-                console.log("Data from cache " + content)
-                callback(null, message.baseType(cache.get(content)));
+            if (utils.getDay() == 'Sunday') {
+                callback(null, message.baseType(STR_NO_FOOD));
             } else {
-                todayMenu(content, function (data) {
-                    callback(null, message.baseType(data));
-                    cache.put(content, data, 1 * 60 * 60 * 1000);
-                });
+                if (cache.get(content)) {
+                    console.log("Data from cache " + content)
+                    callback(null, message.baseType(cache.get(content)));
+                } else {
+                    todayMenu(content, function (data) {
+                        callback(null, message.baseType(data));
+                        cache.put(content, data, 6 * 60 * 60 * 1000);
+                    });
+                }
             }
             break;
 
         case "2식당-저녁":
-            if (cache.get(content)) {
-                console.log("Data from cache " + content)
-                callback(null, message.baseType(cache.get(content)));
+        if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
+                callback(null, message.baseType(STR_NO_FOOD));
             } else {
-                todayMenu(content, function (data) {
-                    callback(null, message.baseType(data));
-                    cache.put(content, data, 1 * 60 * 60 * 1000);
-                });
+                if (cache.get(content)) {
+                    console.log("Data from cache " + content)
+                    callback(null, message.baseType(cache.get(content)));
+                } else {
+                    todayMenu(content, function (data) {
+                        callback(null, message.baseType(data));
+                        cache.put(content, data, 6 * 60 * 60 * 1000);
+                    });
+                }
             }
             break;
 
@@ -110,7 +128,7 @@ botService.choseMenu = (req, content, callback) => {
             } else {
                 tomorrowMenu(function (data) {
                     callback(null, message.baseType(data));
-                    cache.put(content, data, 1 * 60 * 60 * 1000);
+                    cache.put(content, data, 6 * 60 * 60 * 1000);
                 });
             }
             break;
@@ -124,7 +142,7 @@ botService.choseMenu = (req, content, callback) => {
             callback(null, message.baseType("다음에 또 봐요. 🤖"));
             break;
 
-         default:
+        default:
             apiai(content, function (data) {
                 // callback(null, message.baseTypeText(data));
                 callback(null, data);

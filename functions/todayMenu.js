@@ -7,9 +7,11 @@ var returnString = "";
 var array = require('array');
 
 function todayMenu(cafe, callback) {
+    console.log(`Getting data from www.welstory.com`);
+
     request({
             url: 'http://www.welstory.com/menu/seoulrnd/menu.jsp',
-            //url: 'http://www.welstory.com/menu/seoulrnd/menu.jsp?meal_type=2&course=AA&dtFlag=2',
+            // url: 'http://www.welstory.com/menu/seoulrnd/menu.jsp?meal_type=2&course=AA&dtFlag=2',
             encoding: 'binary'
         },
         function (error, response, html) {
@@ -63,7 +65,8 @@ function todayMenu(cafe, callback) {
                         //console.log('menuTitle : ' + menuTitle);
                         //console.log('description : ' + description);
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     } else {
                         console.error("*** No restaurant: " + $(this).find('span.cafeB_restaurant').find('img').attr('src'));
                         
@@ -90,7 +93,7 @@ function todayMenu(cafe, callback) {
                         console.log('menuTitle : ' + menuTitle);
                         console.log('description : ' + description);
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     }
                 });
 
@@ -129,7 +132,8 @@ function todayMenu(cafe, callback) {
                         //console.log('menuTitle : ' + menuTitle);
                         //console.log('description : ' + description);
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     } else {
                         console.error("*** No restaurant: " + $(this).find('span.cafeA_restaurant').find('img').attr('src'));
 
@@ -153,7 +157,8 @@ function todayMenu(cafe, callback) {
                             .replace(/\//g, ',')
                             .replace(/,/g, ', ');
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     }
                 });
 
@@ -193,7 +198,8 @@ function todayMenu(cafe, callback) {
                         //console.log('menuTitle : ' + menuTitle);
                         //console.log('description : ' + description);
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     } else {
                         console.error("*** No restaurant: " + $(this).find('span.cafeA_restaurant').find('img').attr('src'));
 
@@ -218,7 +224,8 @@ function todayMenu(cafe, callback) {
                             .replace(/\//g, ',')
                             .replace(/,/g, ', ');
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     }
                 });
 
@@ -258,7 +265,8 @@ function todayMenu(cafe, callback) {
                         //console.log('menuTitle : ' + menuTitle);
                         //console.log('description : ' + description);
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     } else {
                         console.error("*** No restaurant: " + $(this).find('span.cafeA_restaurant').find('img').attr('src'));
 
@@ -283,7 +291,8 @@ function todayMenu(cafe, callback) {
                             .replace(/\//g, ',')
                             .replace(/,/g, ', ');
 
-                        returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                        returnString += "\n" + menuTitle;
                     }
                 });
 

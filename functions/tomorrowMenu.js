@@ -57,7 +57,8 @@ function getTomorrowMenu(callback) {
                     //console.log('menuTitle : ' + menuTitle);
                     //console.log('description : ' + description);
 
-                    returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    returnString += "\n" + menuTitle;
                 } else {
                     console.log("*** No restaurant: " + $(this).find('span.cafeB_restaurant').find('img').attr('src'));
                 }
@@ -94,7 +95,8 @@ function getTomorrowMenu(callback) {
                     //console.log('menuTitle : ' + menuTitle);
                     //console.log('description : ' + description);
 
-                    returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    returnString += "\n" + menuTitle;
                 } else {
                     console.log("*** No restaurant: " + $(this).find('span.cafeA_restaurant').find('img').attr('src'));
                 }
@@ -136,7 +138,8 @@ function getTomorrowMenu(callback) {
                     //console.log('menuTitle : ' + menuTitle);
                     //console.log('description : ' + description);
 
-                    returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    returnString += "\n" + menuTitle;
                 } else {
                     console.log("*** No restaurant: " + $(this).find('span.cafeA_restaurant').find('img').attr('src'));
                 }
@@ -178,13 +181,14 @@ function getTomorrowMenu(callback) {
                     //console.log('menuTitle : ' + menuTitle);
                     //console.log('description : ' + description);
 
-                    returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    // returnString += "\n" + menuTitle + " (" + restaurant + ")";
+                    returnString += "\n" + menuTitle;
                 } else {
                     console.log("*** No restaurant: " + $(this).find('span.cafeA_restaurant').find('img').attr('src'));
                 }
             });
 
-            returnString += "\n\n내일 먹을 음식을 미리 준비하는 당신은 멋집니다.\n건강을 위한 운동도 잊지마세요. 🤖"
+            returnString += "\n\n내일 먹을 음식을 미리 준비하는 당신은 멋집니다. 건강을 위한 운동도 잊지마세요. 🤖"
             callback(returnString);
         });
 }

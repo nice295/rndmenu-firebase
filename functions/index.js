@@ -40,10 +40,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-  //console.log("Test");
-  //console.log("time is " + utils.getTime());
-  setMenu1Lunch(utils.formatDate());
-  res.send("OK");
+  res.send(utils.getDay());
 });
 
 app.get('/keyboard', (req, res) => {
