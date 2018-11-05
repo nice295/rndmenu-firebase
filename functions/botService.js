@@ -9,6 +9,7 @@ const todayMenu = require('./todayMenu');
 const tomorrowMenu = require('./tomorrowMenu');
 const recommendedMenu1Lunch = require('./recommendedMenu1Lunch');
 const recommendedMenu2Lunch = require('./recommendedMenu2Lunch');
+const recommendedMenu2Dinner = require('./recommendedMenu2Dinner');
 const setMenu1Lunch = require('./setMenu1Lunch');
 const apiai = require('./apiai');
 const utils = require('./utils');
@@ -48,7 +49,7 @@ botService.choseMenu = (req, content, callback) => {
                     });
                 }
             } else if (utils.getTime() == 'afternoon') {
-                recommendedMenu2Lunch(utils.formatDate(), function (data) {
+                recommendedMenu2Dinner(utils.formatDate(), function (data) {
                     callback(null, data);
                 });
             } else {

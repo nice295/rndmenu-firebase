@@ -4,16 +4,28 @@ const moment = require('moment-timezone');
 
 let utils = {};
 
+// utils.formatDate = () => {
+//     var d = new Date(),
+//         month = '' + (d.getMonth() + 1),
+//         day = '' + d.getDate(),
+//         year = d.getFullYear();
+
+//     if (month.length < 2) month = '0' + month;
+//     if (day.length < 2) day = '0' + day;
+
+//     return [year, month, day].join('');
+// };
+
 utils.formatDate = () => {
-    var d = new Date(),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+    var m = moment();
+    m.tz("Asia/Seoul").format();
 
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
+    var g = null; //return g
 
-    return [year, month, day].join('');
+    var currentDate = m.format("YYYYMMDD");
+    console.log("currentDate is " + currentDate);
+
+    return currentDate;
 };
 
 utils.getTime = () => {
@@ -23,7 +35,7 @@ utils.getTime = () => {
     var g = null; //return g
 
     var split_afternoon = 12 //24hr time to split the afternoon
-    var split_evening = 17 //24hr time to split the evening
+    var split_evening = 19 //24hr time to split the evening
     var currentHour = parseFloat(m.format("HH"));
     console.log("currentHour is " + currentHour);
 

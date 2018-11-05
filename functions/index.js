@@ -18,8 +18,8 @@ const visitor = ua('UA-51117181-7');
 
 var serviceAccount = require("./rndmenu-firebase-adminsdk-39wi2-2f5c89e874.json");
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://rndmenu-v2.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://rndmenu-v2.firebaseio.com"
 });
 
 const checkUserKey = (req, res, next) => {
@@ -33,14 +33,16 @@ const checkUserKey = (req, res, next) => {
 };
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello, You have wrong page view.</h1>');
 });
 
 app.get('/test', (req, res) => {
-  res.send(utils.getDay());
+  res.send(utils.formatDate());
 });
 
 app.get('/keyboard', (req, res) => {

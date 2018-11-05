@@ -6,9 +6,9 @@ const message = require('./messages');
 const utils = require('./utils');
 
 function recommendedMenu1Lunch(date, callback) {
-    if (cache.get(date)) {
+    if (cache.get('recommendedMenu1Lunch'+date)) {
         console.log("Data from cache, " + date);
-        var html = cache.get(date);
+        var html = cache.get('recommendedMenu1Lunch'+date);
 
         var $ = cheerio.load(html);
         var returnString = "";
@@ -82,7 +82,7 @@ function recommendedMenu1Lunch(date, callback) {
                     throw error
                 }
                 
-                cache.put(date, html, 1 * 60 * 60 * 1000);
+                cache.put('recommendedMenu1Lunch'+date, html, 1 * 60 * 60 * 1000);
 
                 var $ = cheerio.load(html);
 

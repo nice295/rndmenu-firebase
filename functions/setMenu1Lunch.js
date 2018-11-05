@@ -50,7 +50,6 @@ function setMenu1Lunch(date) {
 
                     utils.recommendedMenus.forEach(function (item, index, array) {
                         if (menu.includes(item) > 0) {
-                            // console.log(menu);
 
                             memuArray.push(menu);
                             imageArray.push(imgUrl);
@@ -60,14 +59,11 @@ function setMenu1Lunch(date) {
             });
 
             if (memuArray.length > 0) {
-                var index = utils.getRandomInt(memuArray.length);
-                memuArray[index]
-                var indexInfo = utils.getRandomInt(utils.info.length);
-                var infoMessage = utils.info[indexInfo];
-
+                var index = utils.getRandomInt(memuArray.length);                
+   
                 postsRef.child('recommendation').set({
-                    menu: menu,
-                    image: imgUrl
+                    menu: memuArray[index],
+                    image: imageArray[index]
                 });
 
              } else {

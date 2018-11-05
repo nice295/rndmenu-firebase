@@ -1,4 +1,16 @@
+const utils = require('./utils');
+
 let message = {};
+
+// message.buttons = [
+//     '🎁뭐먹지',
+//     '1식당-점심',
+//     '2식당-아침',
+//     '2식당-점심',
+//     "2식당-저녁",
+//     "내일 메뉴",
+//     "🤖빅스비에게 물어보기"
+// ];
 
 message.buttons = [
     '🎁뭐먹지',
@@ -6,8 +18,17 @@ message.buttons = [
     '2식당-아침',
     '2식당-점심',
     "2식당-저녁",
-    "내일 메뉴",
-    "🤖빅스비에게 물어보기"
+    "내일 메뉴"
+];
+
+message.buttonsAfternoon = [
+    '🎁뭐먹지',
+    "2식당-저녁",
+    "내일 메뉴"
+];
+
+message.buttonsEvening = [
+    "내일 메뉴"
 ];
 
 message.morebuttons = ['ℹ️자세히 보기',
@@ -15,23 +36,69 @@ message.morebuttons = ['ℹ️자세히 보기',
 ];
 
 message.buttonsType = () => {
-    return {
-        type: 'buttons',
-        buttons: message.buttons
+    if (utils.getTime() == 'morning') {
+        return {
+            type: 'buttons',
+            buttons: message.buttons
+        }
+    } else if (utils.getTime() == 'afternoon') {
+        return {
+            type: 'buttons',
+            buttons: message.buttonsAfternoon
+        }
+    } else {
+        return {
+            type: 'buttons',
+            buttons: message.buttonsEvening
+        }
     }
 };
 
 message.baseType = (text) => {
-    return {
-        message: {
-            text: text,
-        },
-        keyboard: {
-            type: 'buttons',
-            buttons: message.buttons
+    if (utils.getTime() == 'morning') {
+        return {
+            message: {
+                text: text,
+            },
+            keyboard: {
+                type: 'buttons',
+                buttons: message.buttons
+            }
+        }
+    } else if (utils.getTime() == 'afternoon') {
+        return {
+            message: {
+                text: text,
+            },
+            keyboard: {
+                type: 'buttons',
+                buttons: message.buttonsAfternoon
+            }
+        }
+    } else {
+        return {
+            message: {
+                text: text,
+            },
+            keyboard: {
+                type: 'buttons',
+                buttons: message.buttonsEvening
+            }
         }
     }
 };
+
+// message.baseType = (text) => {
+//     return {
+//         message: {
+//             text: text,
+//         },
+//         keyboard: {
+//             type: 'buttons',
+//             buttons: message.buttons
+//         }
+//     }
+// };
 
 message.baseTypeWithButtons = (text, buttons) => {
     return {
