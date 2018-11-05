@@ -71,7 +71,7 @@ function recommendedMenu2Lunch(date, callback) {
             console.log(returnString);
             callback(message.photoOnlyType(returnString, imageArray[index]));
         } else {
-            callback(message.baseType("오늘은 식당 운영을 하지 않습니다.(민망)"));
+            callback(message.baseType("오늘은 맛있는 게 없네요.(민망)"));
         }
 
     } else {
@@ -148,7 +148,7 @@ function recommendedMenu2Lunch(date, callback) {
                     console.log(returnString);
                     callback(message.photoOnlyType(returnString, imageArray[index]));
                 } else {
-                    callback(message.baseType("오늘은 식당 운영을 하지 않습니다.(민망)"));
+                    callback(message.baseType("오늘은 맛있는 게 없네요.(민망)"));
                 }
             }
         );
