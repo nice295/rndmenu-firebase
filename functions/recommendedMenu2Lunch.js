@@ -13,10 +13,6 @@ function recommendedMenu2Lunch(date, callback) {
         var $ = cheerio.load(html);
         var returnString = "";
 
-        // console.log("1식당 점심 추천 메뉴");
-        // returnString = "점심 추천 메뉴<br>";
-        // returnString += "1식당(AB타워)<br>";
-
         var memuArray = new Array();
         var imageArray = new Array();
 
@@ -67,7 +63,7 @@ function recommendedMenu2Lunch(date, callback) {
             var infoMessage = utils.info[indexInfo];
 
             // callback(returnString);
-            returnString = `(하하)빅스비 추천 메뉴 나갑니다.\n마음에 드셨으면 좋겠습니다.\n\n1식당(AB타워) 점심\n- ${memuArray[index]}\n\n💌${infoMessage}`;
+            returnString = `(하하)빅스비 추천 메뉴 나갑니다.\n마음에 드셨으면 좋겠습니다.\n\n2식당(DE타워) 점심\n- ${memuArray[index]}\n\n💌${infoMessage}`;
             console.log(returnString);
             callback(message.photoOnlyType(returnString, imageArray[index]));
         } else {
@@ -88,11 +84,6 @@ function recommendedMenu2Lunch(date, callback) {
                 cache.put(date, html, 1 * 60 * 60 * 1000);
 
                 var $ = cheerio.load(html);
-                // var returnString = "";
-
-                // console.log("2식당 점심 추천 메뉴");
-                // returnString = "점심 추천 메뉴<br>";
-                // returnString += "2식당(DE타워)<br>";
 
                 var memuArray = new Array();
                 var imageArray = new Array();
