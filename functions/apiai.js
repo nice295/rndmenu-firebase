@@ -95,7 +95,7 @@ function getApiai(quetion, callback) {
                 callback(message.baseTypeText(cache.get('tomorrow-menu')));
             } else {
                 console.log("No tomorrow-menu");
-                getTomorrowMenu(function (data) {
+                tomorrowMenu(function (data) {
                     callback(message.baseTypeText(data));
                     cache.put('tomorrow-menu', data, 1 * 60 * 60 * 1000);
                 });

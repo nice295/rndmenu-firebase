@@ -13,10 +13,6 @@ function recommendedMenu1Lunch(date, callback) {
         var $ = cheerio.load(html);
         var returnString = "";
 
-        // console.log("1식당 점심 추천 메뉴");
-        // returnString = "점심 추천 메뉴<br>";
-        // returnString += "1식당(AB타워)<br>";
-
         var memuArray = new Array();
         var imageArray = new Array();
 
@@ -89,11 +85,6 @@ function recommendedMenu1Lunch(date, callback) {
                 cache.put(date, html, 1 * 60 * 60 * 1000);
 
                 var $ = cheerio.load(html);
-                // var returnString = "";
-
-                // console.log("1식당 점심 추천 메뉴");
-                // returnString = "점심 추천 메뉴<br>";
-                // returnString += "1식당(AB타워)<br>";
 
                 var memuArray = new Array();
                 var imageArray = new Array();
