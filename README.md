@@ -1,6 +1,7 @@
 # Seoul R&D Menu with Firebase function
 
 ### To-dos
+- message.photoOnlyType()도 context 기반으로
 - DB에서 데이터 가지고 오기
 - View more 링크 제공
 
