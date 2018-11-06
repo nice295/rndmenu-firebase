@@ -1,6 +1,13 @@
 # Seoul R&D Menu with Firebase function
 
 ### To-dos
+- log 삭제
+  - currentHour is 15
+  - currentDay is Tuesday
+  - Data from cache 2식당-저녁 > Get data from web
+  - (하하)빅스비 추천 메뉴 나갑니다. 마음에 드셨으면 좋겠습니다.
+  - currentDate is 20181106
+  - set-datebase> set first => Saving data (Lunch at 1)
 - message.photoOnlyType()도 context 기반으로
 - DB에서 데이터 가지고 오기
 - View more 링크 제공
