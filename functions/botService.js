@@ -18,7 +18,9 @@ var visitor = ua('UA-51117181-7');
 var STR_NO_FOOD = "오늘은 식당 운영을 하지 않습니다.";
 
 botService.choseMenu = (req, content, callback) => {
-    visitor.event("message", content, req.body.user_key, 0).send();
+    visitor
+        .event("message", content, req.body.user_key, 0)
+        .send();
     console.log(`User(${req.body.user_key}) is asking ${content}.`);
 
     switch (content) {
@@ -27,7 +29,7 @@ botService.choseMenu = (req, content, callback) => {
             if (cache.get("set-datebase")) {
                 //console.log("set-datebase> aleady done");
             } else {
-                console.log("set-datebase> set first");
+                console.log("Saving menu data");
                 setMenu1Lunch(utils.formatDate());
                 cache.put("set-datebase", "OK", 6 * 60 * 60 * 1000);
             }
@@ -59,11 +61,10 @@ botService.choseMenu = (req, content, callback) => {
             break;
 
         case "1식당-점심":
-        if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
+            if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
                 callback(null, message.baseType(STR_NO_FOOD));
             } else {
                 if (cache.get(content)) {
-                    console.log("Data from cache " + content)
                     callback(null, message.baseType(cache.get(content)));
                 } else {
                     todayMenu(content, function (data) {
@@ -107,7 +108,7 @@ botService.choseMenu = (req, content, callback) => {
             break;
 
         case "2식당-저녁":
-        if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
+            if (utils.getDay() == 'Sunday' || utils.getDay() == 'Saturday') {
                 callback(null, message.baseType(STR_NO_FOOD));
             } else {
                 if (cache.get(content)) {
@@ -151,20 +152,13 @@ botService.choseMenu = (req, content, callback) => {
             break;
     }
 
-    //   var now = new time.Date();
-    //   now.setTimezone("Asia/Seoul");
-    //   var timeValue = now.toString()
-
-    //   console.log("user_key: " + req.body.user_key);
-    //   console.log("timeValue: " + timeValue);
-
-    //   firebase.database().ref('kakao/users/' + req.body.user_key + '/action/' + content + "/" + timeValue).set({
-    //     time : timeValue
-    //   });
-
-    //   firebase.database().ref('kakao/users/' + req.body.user_key + '/time/' + timeValue).set({
-    //     action : content
-    //   });
+    //   var now = new time.Date();   now.setTimezone("Asia/Seoul");   var timeValue
+    // = now.toString()   console.log("user_key: " + req.body.user_key);
+    // console.log("timeValue: " + timeValue);
+    // firebase.database().ref('kakao/users/' + req.body.user_key + '/action/' +
+    // content + "/" + timeValue).set({     time : timeValue   });
+    // firebase.database().ref('kakao/users/' + req.body.user_key + '/time/' +
+    // timeValue).set({     action : content   });
 };
 
 module.exports = botService;

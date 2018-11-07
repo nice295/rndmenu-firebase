@@ -2,15 +2,8 @@ const utils = require('./utils');
 
 let message = {};
 
-// message.buttons = [
-//     '🎁뭐먹지',
-//     '1식당-점심',
-//     '2식당-아침',
-//     '2식당-점심',
-//     "2식당-저녁",
-//     "내일 메뉴",
-//     "🤖빅스비에게 물어보기"
-// ];
+// message.buttons = [     '🎁뭐먹지',     '1식당-점심',     '2식당-아침',     '2식당-점심',
+//  "2식당-저녁",     "내일 메뉴",     "🤖빅스비에게 물어보기" ];
 
 message.buttons = [
     '🎁뭐먹지',
@@ -21,36 +14,19 @@ message.buttons = [
     "내일 메뉴"
 ];
 
-message.buttonsAfternoon = [
-    '🎁뭐먹지',
-    "2식당-저녁",
-    "내일 메뉴"
-];
+message.buttonsAfternoon = ['🎁뭐먹지', "2식당-저녁", "내일 메뉴"];
 
-message.buttonsEvening = [
-    "내일 메뉴"
-];
+message.buttonsEvening = ["내일 메뉴"];
 
-message.morebuttons = ['ℹ️자세히 보기',
-    '🔙'
-];
+message.morebuttons = ['ℹ️자세히 보기', '🔙'];
 
 message.buttonsType = () => {
     if (utils.getTime() == 'morning') {
-        return {
-            type: 'buttons',
-            buttons: message.buttons
-        }
+        return {type: 'buttons', buttons: message.buttons}
     } else if (utils.getTime() == 'afternoon') {
-        return {
-            type: 'buttons',
-            buttons: message.buttonsAfternoon
-        }
+        return {type: 'buttons', buttons: message.buttonsAfternoon}
     } else {
-        return {
-            type: 'buttons',
-            buttons: message.buttonsEvening
-        }
+        return {type: 'buttons', buttons: message.buttonsEvening}
     }
 };
 
@@ -58,7 +34,7 @@ message.baseType = (text) => {
     if (utils.getTime() == 'morning') {
         return {
             message: {
-                text: text,
+                text: text
             },
             keyboard: {
                 type: 'buttons',
@@ -68,7 +44,7 @@ message.baseType = (text) => {
     } else if (utils.getTime() == 'afternoon') {
         return {
             message: {
-                text: text,
+                text: text
             },
             keyboard: {
                 type: 'buttons',
@@ -78,7 +54,7 @@ message.baseType = (text) => {
     } else {
         return {
             message: {
-                text: text,
+                text: text
             },
             keyboard: {
                 type: 'buttons',
@@ -88,22 +64,14 @@ message.baseType = (text) => {
     }
 };
 
-// message.baseType = (text) => {
-//     return {
-//         message: {
-//             text: text,
-//         },
-//         keyboard: {
-//             type: 'buttons',
-//             buttons: message.buttons
-//         }
-//     }
-// };
+// message.baseType = (text) => {     return {         message: {
+// text: text,         },         keyboard: {             type: 'buttons',
+//       buttons: message.buttons         }     } };
 
 message.baseTypeWithButtons = (text, buttons) => {
     return {
         message: {
-            text: text,
+            text: text
         },
         keyboard: {
             type: 'buttons',
@@ -115,10 +83,10 @@ message.baseTypeWithButtons = (text, buttons) => {
 message.baseTypeText = (text) => {
     return {
         message: {
-            text: text,
+            text: text
         },
         keyboard: {
-            type: 'text',
+            type: 'text'
         }
     }
 };
@@ -134,7 +102,7 @@ message.photoType = (text, url_photo, label, url_button) => {
             },
             message_button: {
                 label: label,
-                url: url_button,
+                url: url_button
             }
         },
         keyboard: {
@@ -145,18 +113,50 @@ message.photoType = (text, url_photo, label, url_button) => {
 };
 
 message.photoOnlyType = (text, url_photo) => {
-    return {
-        message: {
-            text: text,
-            photo: {
-                url: url_photo,
-                height: 200,
-                width: 300
+    if (utils.getTime() == 'morning') {
+        return {
+            message: {
+                text: text,
+                photo: {
+                    url: url_photo,
+                    height: 200,
+                    width: 300
+                }
+            },
+            keyboard: {
+                type: 'buttons',
+                buttons: message.buttons
             }
-        },
-        keyboard: {
-            type: 'buttons',
-            buttons: message.buttons
+        }
+    } else if (utils.getTime() == 'afternoon') {
+        return {
+            message: {
+                text: text,
+                photo: {
+                    url: url_photo,
+                    height: 200,
+                    width: 300
+                }
+            },
+            keyboard: {
+                type: 'buttons',
+                buttons: message.buttonsAfternoon
+            }
+        }
+    } else {
+        return {
+            message: {
+                text: text,
+                photo: {
+                    url: url_photo,
+                    height: 200,
+                    width: 300
+                }
+            },
+            keyboard: {
+                type: 'buttons',
+                buttons: message.buttonsEvening
+            }
         }
     }
 };
@@ -167,7 +167,7 @@ message.messageButtonType = (text, label, url_button) => {
             text: text,
             message_button: {
                 label: label,
-                url: url_button,
+                url: url_button
             }
         },
         keyboard: {

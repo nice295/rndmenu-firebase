@@ -23,7 +23,7 @@ utils.formatDate = () => {
     var g = null; //return g
 
     var currentDate = m.format("YYYYMMDD");
-    console.log("currentDate is " + currentDate);
+    // console.log("currentDate is " + currentDate);
 
     return currentDate;
 };
@@ -37,7 +37,7 @@ utils.getTime = () => {
     var split_afternoon = 12 //24hr time to split the afternoon
     var split_evening = 19 //24hr time to split the evening
     var currentHour = parseFloat(m.format("HH"));
-    console.log("currentHour is " + currentHour);
+    // console.log("currentHour is " + currentHour);
 
     if (currentHour >= split_afternoon && currentHour <= split_evening) {
         g = "afternoon";
@@ -55,7 +55,7 @@ utils.getDay = () => {
     m.tz("Asia/Seoul").format();
 
     var currentDay = m.format("dddd");
-    console.log("currentDay is " + currentDay);
+    // console.log("currentDay is " + currentDay);
 
     return currentDay;
 };
@@ -74,7 +74,8 @@ utils.recommendedMenus = [
     '냉면',
     '오므라이스',
     '잔치국수',
-    '잡채덮밥'
+    '잡채덮밥',
+    '탕수육'
 ];
 
 utils.info = [

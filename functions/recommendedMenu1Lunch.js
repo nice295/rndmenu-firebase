@@ -64,7 +64,7 @@ function recommendedMenu1Lunch(date, callback) {
 
             // callback(returnString);
             returnString = `(하하)빅스비 추천 메뉴 나갑니다.\n마음에 드셨으면 좋겠습니다.\n\n1식당(AB타워) 점심\n- ${memuArray[index]}\n\n💌${infoMessage}`;
-            console.log(returnString);
+            // console.log(returnString);
             callback(message.photoOnlyType(returnString, imageArray[index]));
         } else {
             callback(message.baseType("오늘은 맛있는 게 없네요.(민망)"));
@@ -137,7 +137,7 @@ function recommendedMenu1Lunch(date, callback) {
 
                     // callback(returnString);
                     returnString = `(하하)빅스비 추천 메뉴 나갑니다.\n마음에 드셨으면 좋겠습니다.\n\n1식당(AB타워) 점심\n- ${memuArray[index]}\n\n💌${infoMessage}`;
-                    console.log(returnString);
+                    // console.log(returnString);
                     callback(message.photoOnlyType(returnString, imageArray[index]));
                 } else {
                     callback(message.baseType("오늘은 맛있는 게 없네요.(민망)"));
