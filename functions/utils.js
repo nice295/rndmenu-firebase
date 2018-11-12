@@ -34,7 +34,7 @@ utils.getTime = () => {
 
     var g = null; //return g
 
-    var split_afternoon = 12 //24hr time to split the afternoon
+    var split_afternoon = 13 //24hr time to split the afternoon
     var split_evening = 19 //24hr time to split the evening
     var currentHour = parseFloat(m.format("HH"));
     // console.log("currentHour is " + currentHour);
