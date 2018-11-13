@@ -41,10 +41,13 @@ function todayMenu(cafe, callback) {
                     var restaurant = $(this).find('span.img_orange').text();
                     if (restaurant) {
                         var menuTitle = $(this).parent().find('.cafeB_tit').text();
-                        var description = $(this).parent().find('.cafeB_txt').text();
+                        console.log('menuTitle : ' + menuTitle);
 
+                        var description = $(this).parent().find('.cafeB_txt').text();
+                        console.log('description : ' + description);
+                        
                         menuTitle = menuTitle
-                            .replace(restaurant, '')
+                            // .replace(restaurant, '')
                             .replace(/\s+/g, '')
                             .replace('(선택식)', '')
                             .replace('[선택식]', '')
@@ -61,9 +64,9 @@ function todayMenu(cafe, callback) {
                             .replace(/\//g, ',')
                             .replace(/,/g, ', ');
 
-                        //console.log('restaurant : ' + restaurant);
-                        //console.log('menuTitle : ' + menuTitle);
-                        //console.log('description : ' + description);
+                        console.log('restaurant : ' + restaurant);
+                        console.log('menuTitle : ' + menuTitle);
+                        console.log('description : ' + description);
 
                         // returnString += "\n" + menuTitle + " (" + restaurant + ")";
                         returnString += "\n" + menuTitle;

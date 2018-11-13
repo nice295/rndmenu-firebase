@@ -75,7 +75,8 @@ utils.recommendedMenus = [
     '오므라이스',
     '잔치국수',
     '잡채덮밥',
-    '탕수육'
+    '탕수육',
+    '떡볶이'
 ];
 
 utils.info = [
